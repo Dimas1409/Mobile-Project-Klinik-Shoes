@@ -68,7 +68,10 @@ flutter:
     - asset/Image3.png
     - asset/Image4.png
     - asset/Image5.png
-    
+    - asset/Image6.png
+    - asset/Image7.png
+    - asset/Image8.png
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
