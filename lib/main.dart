@@ -1,9 +1,8 @@
-import 'package:klinik_shoes_project/core.dart';
 import 'package:flutter/material.dart';
-import 'package:klinik_shoes_project/module/login_page/controller/login_page_controller.dart';
-import 'package:klinik_shoes_project/module/login_page/view/login_page_view.dart';
-import 'package:klinik_shoes_project/module/homepage/controller/homepage_controller.dart';
-import 'package:klinik_shoes_project/module/homepage/view/homepage_view.dart';
+import 'package:get/get.dart';
+import 'package:klinik_shoes_project/Routes/routes.dart';
+ // Import homepage view jika ada
+
 void main() {
   runApp(MyApp());
 }
@@ -11,12 +10,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Klinik Shoes',
+    return GetMaterialApp(
+      title: 'Klinik Shoes Project',
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: HomePageView(),
+      initialRoute: AppRoutes.getHomeRoute(),
+      getPages: AppRoutes.routes,
     );
   }
 }

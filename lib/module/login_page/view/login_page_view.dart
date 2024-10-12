@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klinik_shoes_project/core.dart';
 import 'package:klinik_shoes_project/module/login_page/controller/login_page_controller.dart';
 
 class LoginPageView extends StatelessWidget {
@@ -9,6 +10,7 @@ class LoginPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           // Background and decorative circles
@@ -81,13 +83,14 @@ class LoginPageView extends StatelessWidget {
 
                   // Replacing the ElevatedButton with the custom styled Container button
                   GestureDetector(
-                    onTap: () async {
-                      final result = controller.login();
-                      if (result != null) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(result)),
-                        );
-                      }
+                    onTap: () {
+                      controller.login();
+                      // final result = controller.login();
+                      // if (result != null) {
+                      //   ScaffoldMessenger.of(context).showSnackBar(
+                      //     SnackBar(content: Text(result)),
+                      //   );
+                      // }
                     },
                     child: Container(
                       width: 350, // Lebar tombol

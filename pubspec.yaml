@@ -71,6 +71,18 @@ flutter:
     - asset/Image6.png
     - asset/Image7.png
     - asset/Image8.png
+    - asset/profile-picture.png
+    - asset/bell.png
+    - asset/ping.png
+    - asset/Banner_1.png
+    - asset/Banner_2.png
+    - asset/marker-pin.png
+    - asset/arrow-bawah.png
+    - asset/home.png
+    - asset/cart-icon.png
+    - asset/history-icon.png
+    - asset/user-icon.png
+    - asset/one_day_order.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

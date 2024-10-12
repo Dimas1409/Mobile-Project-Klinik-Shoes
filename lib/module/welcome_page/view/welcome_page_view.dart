@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:klinik_shoes_project/module/welcome_page/controller/welcome_page_controller.dart';
+import 'package:get/get.dart';
+import 'package:klinik_shoes_project/module/login_page/controller/login_page_controller.dart'; 
+import 'package:klinik_shoes_project/module/signup_page/controller/signup_page_controller.dart';// Make sure to import GetX
+import 'package:klinik_shoes_project/module/login_page/view/login_page_view.dart';
+import 'package:klinik_shoes_project/module/signup_page/view/signup_page_view.dart';
 
 class WelcomePage extends StatelessWidget {
-  final WelcomeController controller = WelcomeController();
-
+  
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Center(
+        child: Stack(
+        children: [
         Container(
           width: 390,
           height: 844,
@@ -102,84 +108,94 @@ class WelcomePage extends StatelessWidget {
               Positioned(
                 left: 20,
                 top: 639,
-                child: Container(
-                  width: 350,
-                  height: 50,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 109, vertical: 5),
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 5, color: Color(0xFFBEF2EE)),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    shadows: [
-                      BoxShadow(
-                        color: Color(0x7F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 2),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Login',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'Sora',
-                          fontWeight: FontWeight.w600,
-                          height: 0.04,
-                        ),
+                child: GestureDetector(
+                  onTap: () {
+                    // Navigate to LoginPage using GetX
+                    Get.to(() => LoginPageView(controller: LoginController())); // Ensure you have the right controller
+                  },
+                  child: Container(
+                    width: 350,
+                    height: 50,
+                    padding: const EdgeInsets.symmetric(horizontal: 109, vertical: 5),
+                    decoration: ShapeDecoration(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(width: 5, color: Color(0xFFBEF2EE)),
+                        borderRadius: BorderRadius.circular(30),
                       ),
-                    ],
+                      shadows: [
+                        BoxShadow(
+                          color: Color(0x7F000000),
+                          blurRadius: 4,
+                          offset: Offset(0, 2),
+                          spreadRadius: 0,
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Login',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'Sora',
+                            fontWeight: FontWeight.w600,
+                            height: 0.04,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
               Positioned(
                 left: 20,
                 top: 709,
-                child: Container(
-                  width: 350,
-                  height: 50,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 103, vertical: 8),
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 5, color: Color(0xFFA9EEE9)),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    shadows: [
-                      BoxShadow(
-                        color: Color(0x7F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 2),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'Sora',
-                          fontWeight: FontWeight.w600,
-                          height: 0.04,
-                        ),
+                child: GestureDetector(
+                  onTap: () {
+                    // Navigate to SignUpPage using GetX
+                    Get.to(() => SignupPageView(controller: SignupPageController())); // Ensure you have the right controller
+                  },
+                  child: Container(
+                    width: 350,
+                    height: 50,
+                    padding: const EdgeInsets.symmetric(horizontal: 103, vertical: 8),
+                    decoration: ShapeDecoration(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(width: 5, color: Color(0xFFA9EEE9)),
+                        borderRadius: BorderRadius.circular(30),
                       ),
-                    ],
+                      shadows: [
+                        BoxShadow(
+                          color: Color(0x7F000000),
+                          blurRadius: 4,
+                          offset: Offset(0, 2),
+                          spreadRadius: 0,
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'Sora',
+                            fontWeight: FontWeight.w600,
+                            height: 0.04,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -187,6 +203,8 @@ class WelcomePage extends StatelessWidget {
           ),
         ),
       ],
+        ),
+      ),
     );
   }
 }

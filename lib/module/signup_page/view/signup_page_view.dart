@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import '../controller/signup_page_controller.dart';
+import 'package:get/get.dart';
+import 'package:klinik_shoes_project/module/homepage/view/homepage_view.dart'; // Import your home page
+import 'package:klinik_shoes_project/module/signup_page/controller/signup_page_controller.dart';
+
 
 class SignupPageView extends StatelessWidget {
   final SignupPageController controller;
@@ -9,6 +13,7 @@ class SignupPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           // Background gradient and decorative circles

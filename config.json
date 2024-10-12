@@ -3,7 +3,8 @@
         "welcome_page",
         "login_page",
         "signup_page",
-        "landing_page"
+        "landing_page",
+        "cart_page"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,

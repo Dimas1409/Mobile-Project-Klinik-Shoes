@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 
-BuildContext get globalContext {
-  return Get.currentContext;
-}
-
 class Get {
-  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-  static get currentContext {
-    // return navigatorKey.currentContext;
-    return navigatorKey.currentState?.context;
+  static BuildContext get currentContext {
+    final context = navigatorKey.currentState?.context;
+    if (context == null) {
+      throw Exception('No Navigator context found! Ensure that the navigatorKey is properly set.');
+    }
+    return context;
   }
 
-  static to(Widget page) async {
-    return await navigatorKey.currentState!.push(
+  static Future<void> to(Widget page) async {
+    await navigatorKey.currentState?.push(
       MaterialPageRoute(builder: (context) => page),
     );
+    // No return statement needed
   }
 
-  static back() {
-    if (Navigator.canPop(globalContext) == false) return;
-    Navigator.pop(globalContext);
+  static void back() {
+    if (navigatorKey.currentState?.canPop() == true) {
+      navigatorKey.currentState?.pop();
+    }
   }
 
-  static offAll(page) {
-    return navigatorKey.currentState!.pushAndRemoveUntil(
+  static void offAll(Widget page) {
+    navigatorKey.currentState?.pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => page),
       (Route<dynamic> route) => false,
     );
@@ -35,16 +36,16 @@ class Get {
   }
 
   static double get height {
-    return MediaQuery.of(currentContext).size.width;
+    return MediaQuery.of(currentContext).size.height; // Fixed to return height
   }
 
-  static ValueNotifier<ThemeData> mainTheme =
-      ValueNotifier<ThemeData>(ThemeData());
-  static changeTheme(ThemeData theme) {
+  static ValueNotifier<ThemeData> mainTheme = ValueNotifier<ThemeData>(ThemeData());
+
+  static void changeTheme(ThemeData theme) {
     mainTheme.value = theme;
   }
 
   static ThemeData get theme {
-    return Theme.of(Get.currentContext);
+    return Theme.of(currentContext);
   }
 }

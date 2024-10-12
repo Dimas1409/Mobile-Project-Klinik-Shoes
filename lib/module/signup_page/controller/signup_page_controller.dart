@@ -16,26 +16,10 @@ class SignupPageController {
     model.confirmPassword = value;
   }
 
-  // Fungsi untuk mendaftarkan user
+  // Fungsi untuk mendaftarkan user (disederhanakan untuk alur)
   String? signup() {
-    // Lakukan validasi input
-    String? usernameError = model.validateUsername();
-    if (usernameError != null) {
-      return usernameError;
-    }
-
-    String? passwordError = model.validatePassword();
-    if (passwordError != null) {
-      return passwordError;
-    }
-
-    String? confirmPasswordError = model.validateConfirmPassword();
-    if (confirmPasswordError != null) {
-      return confirmPasswordError;
-    }
-
-    // Jika semua validasi berhasil, proses pendaftaran bisa dilanjutkan
+    // Simulasi pendaftaran berhasil
     print('Pendaftaran berhasil untuk: ${model.username}');
-    return null; // Tidak ada error
+    return null; // Tidak ada error, mendaftar berhasil
   }
 }
