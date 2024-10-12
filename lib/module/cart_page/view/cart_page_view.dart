@@ -41,7 +41,7 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFEAFBF9),
         elevation: 0,
         leading: Icon(Icons.arrow_back, color: Colors.black),
         centerTitle: true,
@@ -50,9 +50,18 @@ class _CartPageState extends State<CartPage> {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: Container(
+        body: Container(
         padding: EdgeInsets.all(16.0),
-        color: Color(0xFFBAE6E4), // Background color
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFFEAFBF9), // Start color
+              Color(0xFF7FE6DE), // End color (change this to your preferred color)
+            ],
+            begin: Alignment.topCenter, // Gradient starts from the top
+            end: Alignment.bottomCenter, // Gradient ends at the bottom
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

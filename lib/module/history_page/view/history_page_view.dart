@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:klinik_shoes_project/module/cart_page/view/cart_page_view.dart';
 import 'package:klinik_shoes_project/module/homepage/view/homepage_view.dart';
 import 'package:klinik_shoes_project/module/homepage/controller/homepage_controller.dart';
+import 'package:klinik_shoes_project/module/profile_page/view/profile_page.dart';
 
 class HistoryPage extends StatefulWidget {
   @override
@@ -30,7 +31,7 @@ class _HistoryPageState extends State<HistoryPage> {
         break;
       case 3:
         // Uncomment and replace with your ProfilePage when implemented
-        // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfilePageView()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfilePage()));
         break;
     }
   }
@@ -54,7 +55,7 @@ class _HistoryPageState extends State<HistoryPage> {
             },
           )
         ],
-        backgroundColor: Colors.tealAccent[100],
+        backgroundColor: Color(0xFFEAFBF9),
       ),
       body: Container(
         decoration: BoxDecoration(
