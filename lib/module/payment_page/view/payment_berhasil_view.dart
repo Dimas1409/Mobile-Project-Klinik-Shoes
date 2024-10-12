@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klinik_shoes_project/core.dart';
 
 
 
@@ -111,9 +112,9 @@ class TransactionSuccessPage extends StatelessWidget {
                 ),
                 SizedBox(height: 16.0),
                 ElevatedButton(
-                  onPressed: () {
-                    // Aksi yang dilakukan ketika tombol Continue ditekan
-                  },
+                  onPressed: () =>
+                    Get.to(HomePageView(controller: HomePageController())),
+                    // Aksi yang dilakukan ketika tombol Continue ditekan,
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.black, backgroundColor: Colors.white,
                     side: BorderSide(color: Colors.green, width: 2),
