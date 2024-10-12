@@ -52,7 +52,7 @@ void onBottomNavTap(BuildContext context, int index) {
         break;
       case 2:
         // Navigate to History Page
-        Navigator.pushNamed(context, '/history'); // Adjust the route name if necessary
+        Navigator.pushNamed(context, '/history1'); // Adjust the route name if necessary
         break;
       case 3:
         // Navigate to Profile Page

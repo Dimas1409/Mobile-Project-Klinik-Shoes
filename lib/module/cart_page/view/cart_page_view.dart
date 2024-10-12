@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klinik_shoes_project/module/history_page/view/history_page_view.dart';
 import 'package:klinik_shoes_project/module/payment_page/view/payment_page_view.dart';
 import 'package:klinik_shoes_project/module/homepage/view/homepage_view.dart';
 import 'package:klinik_shoes_project/module/homepage/controller/homepage_controller.dart';
@@ -27,7 +28,8 @@ class _CartPageState extends State<CartPage> {
         // Cart is the current page, do nothing
         break;
       case 2:
-        // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HistoryPageView())); // Replace with your HistoryPage
+            Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => HistoryPage()));// Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HistoryPageView())); // Replace with your HistoryPage
         break;
       case 3:
         // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfilePageView())); // Replace with your ProfilePage

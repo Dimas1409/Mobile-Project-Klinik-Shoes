@@ -84,6 +84,7 @@ flutter:
     - asset/user-icon.png
     - asset/one_day_order.png
     - asset/simple_cleaning_logo.png
+    - asset/whitening_logo.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

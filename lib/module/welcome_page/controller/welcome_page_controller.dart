@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; // Ensure you import GetX
-import 'package:klinik_shoes_project/module/login_page/view/login_page_view.dart';
-import 'package:klinik_shoes_project/module/signup_page/view/signup_page_view.dart';
 import 'package:klinik_shoes_project/model/welcome_page_model/welcome_page_model.dart';
 
 class WelcomeController {

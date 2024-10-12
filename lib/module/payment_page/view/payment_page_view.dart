@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:klinik_shoes_project/module/payment_page/view/payment_berhasil_view.dart';
 import 'package:klinik_shoes_project/module/payment_page/view/splash.dart';
 
 class CheckoutPage extends StatelessWidget {

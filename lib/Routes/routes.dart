@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:klinik_shoes_project/module/cart_page/view/cart_page_view.dart';
 import 'package:klinik_shoes_project/module/categories_page/view/simple_cleaning_view.dart';
+import 'package:klinik_shoes_project/module/history_page/view/history_page_view.dart';
 import 'package:klinik_shoes_project/module/login_page/view/login_page_view.dart';
 import 'package:klinik_shoes_project/module/signup_page/view/signup_page_view.dart';
 import 'package:klinik_shoes_project/module/welcome_page/view/welcome_page_view.dart';
@@ -16,6 +17,7 @@ class AppRoutes {
   static const String home = '/home';
   static const String cart = '/cart';
   static const String simple_cleaning = '/simple';
+  static const String history1 = '/history1';
 
   // Getter untuk rute awal
   static String getHomeRoute() => welcome;
@@ -44,6 +46,11 @@ class AppRoutes {
     ),
     GetPage(
       page: () => SimpleCleaningView() ,
-      name: simple_cleaning)
+      name: simple_cleaning
+    ),
+    GetPage(
+      page: () => HistoryPage(),
+      name: history1
+    )
   ];
 }
