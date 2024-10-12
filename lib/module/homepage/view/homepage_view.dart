@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:klinik_shoes_project/Routes/routes.dart';
+import 'package:klinik_shoes_project/core.dart';
+import 'package:klinik_shoes_project/module/categories_page/view/simple_cleaning_view.dart';
 import 'package:klinik_shoes_project/module/homepage/controller/homepage_controller.dart';
+import 'package:get/get.dart' as getX;
 
 class HomePageView extends StatefulWidget {
   final HomePageController controller; // Tambahkan parameter controller
@@ -236,7 +240,9 @@ class _HomePageViewState extends State<HomePageView> {
   Widget _buildCategoryItem(String title, String assetPath) {
     return GestureDetector(
       onTap: () {
-        widget.controller.onCategorySelected(title); // Ganti controller ke widget.controller
+        if (title == 'Simple\nCleaning') {
+        getX.Get.toNamed(AppRoutes.simple_cleaning);
+        } // Ganti controller ke widget.controller
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center, // Center vertically
