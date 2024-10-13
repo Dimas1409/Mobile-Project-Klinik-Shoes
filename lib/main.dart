@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:klinik_shoes_project/Routes/routes.dart';
+import 'package:klinik_shoes_project/core.dart';
 import 'package:klinik_shoes_project/module/history_page/view/history_page_view.dart';
+import 'package:klinik_shoes_project/module/location/view/map_view.dart';
 import 'package:klinik_shoes_project/module/profile_page/view/profile_page.dart';
  // Import homepage view jika ada
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      // home: ProfilePage(),
+      // home: MapView()
       initialRoute: AppRoutes.getHomeRoute(),
       getPages: AppRoutes.routes
     );

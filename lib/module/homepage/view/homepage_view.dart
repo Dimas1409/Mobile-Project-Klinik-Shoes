@@ -3,6 +3,8 @@ import 'package:klinik_shoes_project/Routes/routes.dart';
 import 'package:klinik_shoes_project/core.dart';
 import 'package:klinik_shoes_project/module/homepage/controller/homepage_controller.dart';
 import 'package:get/get.dart' as getX;
+import 'package:klinik_shoes_project/module/location/view/map_view.dart';
+
 
 class HomePageView extends StatefulWidget {
   final HomePageController controller; // Tambahkan parameter controller
@@ -76,45 +78,50 @@ class _HomePageViewState extends State<HomePageView> {
 
   // Top section with user profile and location
   Widget _buildTopSection(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween, // Space between left and right sections
-      crossAxisAlignment: CrossAxisAlignment.start, // Aligns children at the start of the cross axis
-      children: [
-        // Left side with Hello and address
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
-          children: [
-            // Hello text
-            Text(
-              'Hello,',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black54,
-                fontFamily: 'Sora',
-                fontWeight: FontWeight.w400,
-              ),
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween, // Space between sections
+    crossAxisAlignment: CrossAxisAlignment.start, // Align at the start of the cross axis
+    children: [
+      // Left side: Hello and address section
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
+        children: [
+          // Hello text
+          Text(
+            'Hello,',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black54,
+              fontFamily: 'Sora',
+              fontWeight: FontWeight.w400,
             ),
-            // Username text
-            Text(
-              widget.controller.getUserName(), // Ganti controller ke widget.controller
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+          ),
+          // Username text
+          Text(
+            widget.controller.getUserName(), // Use widget.controller for access
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
-            SizedBox(height: 4), // Space between username and address
-            // Address with custom icon and downward arrow
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start, // Aligns icon and text at the top
+          ),
+          SizedBox(height: 4), // Space between username and address
+          // Wrap the address section in GestureDetector to make it clickable
+          GestureDetector(
+            onTap: () {
+              // Navigate to MapView when the address is clicked
+              getX.Get.to(() => MapView());
+            },
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center, // Align icon and text in the center
               children: [
                 // Custom address icon
                 Container(
                   width: 26.19,
                   height: 26.19,
-                  child: Image.asset('asset/marker-pin.png'), // Use your PNG here
+                  child: Image.asset('asset/marker-pin.png'), // PNG asset
                 ),
-                SizedBox(width: 8), // Space between icon and address text
+                SizedBox(width: 8), // Space between icon and address
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start, // Align address text to the left
                   children: [
@@ -139,12 +146,12 @@ class _HomePageViewState extends State<HomePageView> {
                           ),
                         ),
                         SizedBox(width: 4), // Space between address and arrow
-                        // Custom downward arrow image
+                        // Downward arrow image
                         Container(
-                          width: 20, // Adjust width as needed
-                          height: 20, // Adjust height as needed
+                          width: 20,
+                          height: 20,
                           child: Image.asset(
-                            'asset/arrow-bawah.png', // Update this to your PNG asset
+                            'asset/arrow-bawah.png',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -154,40 +161,39 @@ class _HomePageViewState extends State<HomePageView> {
                 ),
               ],
             ),
-          ],
-        ),
-        // Right side with profile picture and notification
-        Row(
-          children: [
-            Stack(
-              children: [
-                Icon(Icons.notifications, size: 30),
-                Positioned(
-                  right: 0,
-                  top: 0,
-                  child: Container(
-                    width: 10,
-                    height: 10,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.red,
-                    ),
+          ),
+        ],
+      ),
+      // Right side: Notifications and profile picture
+      Row(
+        children: [
+          Stack(
+            children: [
+              Icon(Icons.notifications, size: 30),
+              Positioned(
+                right: 0,
+                top: 0,
+                child: Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.red,
                   ),
                 ),
-              ],
-            ),
-            SizedBox(width: 14), // Space between notification icon and profile picture
-            // CircleAvatar for profile picture
-            CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage('asset/profile-picture.png'), // Replace with actual asset path
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
+              ),
+            ],
+          ),
+          SizedBox(width: 14), // Space between icon and avatar
+          CircleAvatar(
+            radius: 20,
+            backgroundImage: AssetImage('asset/profile-picture.png'), // Profile picture asset
+          ),
+        ],
+      ),
+    ],
+  );
+}
   // Categories section with GridView
   Widget _buildCategoriesSection() {
     return Column(

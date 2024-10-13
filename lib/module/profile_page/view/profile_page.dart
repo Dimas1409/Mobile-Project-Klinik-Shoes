@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as getX;
 import 'package:klinik_shoes_project/core.dart';
 import 'package:klinik_shoes_project/module/cart_page/view/cart_page_view.dart';
-import 'package:klinik_shoes_project/module/homepage/view/homepage_view.dart';
 import 'package:klinik_shoes_project/module/history_page/view/history_page_view.dart';
+import 'package:klinik_shoes_project/module/webview/view/WebView_view.dart';
+
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -12,7 +14,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   int _selectedIndex = 3; // Default index for Profile
 
-  // Method to handle item tap
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -47,14 +48,12 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // AppBar with back button and cart
       appBar: AppBar(
         backgroundColor: Color(0xFF29D6C8),
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            // Navigate to Home when back button is pressed
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => HomePageView(controller: HomePageController())), // Navigate to Home
@@ -75,31 +74,24 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
-
-      // Profile and options body
       body: Column(
         children: [
-          // Profile picture and background section
           Container(
             color: Color(0xFF29D6C8),
             padding: EdgeInsets.only(top: 50, bottom: 60, right: 121.8, left: 121.5),
             child: Column(
               children: [
-                // Circle Avatar with white background around profile picture
                 Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: Colors.white, width: 4), // White border around the avatar
+                    border: Border.all(color: Colors.white, width: 4),
                   ),
                   child: CircleAvatar(
                     radius: 50,
-                    backgroundImage: AssetImage(
-                      'asset/profile-picture.png', // Replace with your image
-                    ),
+                    backgroundImage: AssetImage('asset/profile-picture.png'),
                   ),
                 ),
                 SizedBox(height: 10),
-                // User name
                 Text(
                   'Dimas Arief W.',
                   style: TextStyle(
@@ -108,7 +100,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     color: Colors.black,
                   ),
                 ),
-                // User email
                 Text(
                   'Dummy@example.com',
                   style: TextStyle(
@@ -119,14 +110,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
-
-          // List of profile options (centered horizontally)
           Expanded(
             child: ListView(
               padding: EdgeInsets.symmetric(vertical: 20),
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 16), // Margin from both sides
+                  margin: EdgeInsets.symmetric(horizontal: 16),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white,
@@ -135,16 +124,15 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Colors.grey.withOpacity(0.2),
                         spreadRadius: 2,
                         blurRadius: 5,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset: Offset(0, 3),
                       ),
                     ],
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 20), // Padding ke bawah
+                  padding: EdgeInsets.symmetric(vertical: 20),
                   child: Column(
                     children: [
-                      // Edit Profile option
                       ListTile(
-                        contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 16), // Vertical padding for more height
+                        contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 16),
                         leading: Icon(Icons.person_outline, color: Colors.teal),
                         title: Text('Edit User Profile'),
                         trailing: Icon(Icons.arrow_forward_ios),
@@ -153,10 +141,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         },
                       ),
                       Divider(height: 1, thickness: 1),
-
-                      // Settings option
                       ListTile(
-                        contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 16), // Vertical padding for more height
+                        contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 16),
                         leading: Icon(Icons.settings_outlined, color: Colors.teal),
                         title: Text('Settings'),
                         trailing: Icon(Icons.arrow_forward_ios),
@@ -165,15 +151,14 @@ class _ProfilePageState extends State<ProfilePage> {
                         },
                       ),
                       Divider(height: 1, thickness: 1),
-
-                      // Call Center option
                       ListTile(
-                        contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 16), // Vertical padding for more height
+                        contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 16),
                         leading: Icon(Icons.phone_outlined, color: Colors.teal),
                         title: Text('Call Center'),
                         trailing: Icon(Icons.arrow_forward_ios),
                         onTap: () {
-                          // Call Center action
+                          // Navigate to WebView page for Instagram
+                          getX.Get.to(WebViewPage(url: 'https://www.instagram.com/_dmsaw/')); // Using GetX for navigation
                         },
                       ),
                     ],
@@ -184,15 +169,13 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
-
-      // Bottom Navigation Bar matching with other pages
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex, // Set current index to the Profile tab
+        currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
-        onTap: _onItemTapped, // Use the method to handle taps
+        onTap: _onItemTapped,
         items: [
           BottomNavigationBarItem(
             icon: Image.asset('asset/home.png', width: 24, height: 24),
